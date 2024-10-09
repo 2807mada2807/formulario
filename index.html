@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesión y Formulario</title>
+    <style>
+        body {
+
+            
+            font-family: Arial, sans-serif;
+            background-color: #f6f7f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            width: 400px;
+      background: #072e55;
+      padding: 100px;
+      margin: auto;
+      margin-top: 100px;
+      border-radius: 10px;
+      font-family: ´calibri´;
+      color: rgb(255, 255, 255);
+      box-shadow: 7px 13px 37px #000;
+        }
+        .hidden {
+            display: none; /* Para ocultar los formularios */
+        }
+        h2 {
+            font-size: 22px;
+               margin-bottom: 20px;
+             text-align: center;
+             color: #fffbfb;
+         
+             
+        }
+        
+        h5{
+            font-size: 22px;
+               margin-bottom: 20px;
+             text-align: center;
+             color: #fffbfb;
+        }
+            
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #fffbfb;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="password"], input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+        input[type="submit"] {
+            background-color: #a6cbee;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+        input[type="submit"]:hover {
+            background-color: #98c2f3;
+        }
+
+        p {
+    color: rgb(254, 255, 255);
+    text-align: center;
+    font-size: 18px;
+  }
+        body{
+    background-image: url(fondo.png);
+    margin: 0;  
+    padding: 0;
+  
+    box-sizing: border-box;
+  }
+    </style>
+</head>
+<body>
+
+    <!-- Formulario de inicio de sesión -->
+    <div id="loginForm" class="container">
+        <h2> INICIAR SESION </h2>
+        <form onsubmit="return login()">
+            <label for="username">Usuario</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Contraseña</label>
+            <input type="password" id="password" name="password" required>
+
+            <input type="submit" value="Iniciar Sesión">
+        </form>
+    </div>
+
+    <!-- Segundo formulario que se mostrará después del login -->
+    <div id="secondForm" class="container hidden">
+       <h2> FORMULARIO DE REGISTRO</h2>
+        <form>
+
+
+            
+            <input class="control" type="text" name="numero de control" id="numero de control" placeholder="Numero de control">
+            <input class="control" type="text" name="apellido paterno" id="apellido paterno" placeholder="Apellido Paterno">
+            <input class="control" type="text" name="apellido materno" id="apellido materno" placeholder="Apellido materno">
+            <input class="control" type="text" name="nombres" id="nombres" placeholder="Ingrese el nombre">
+            <input class="control" type="text" name="sexo" id="sexo" placeholder="sexo">
+            <input class="control" type="text" name="fecha de nacimiento" id="fecha de nacimiento" placeholder=" Fecha de nacimiento">
+            <input class="control" type="email" name="correo" id="correo" placeholder="Correo Electronico">
+            <input class="control" type="text" name="celular" id="celular" placeholder=" Numero de Celular">
+            <input class="control" type="text" name="direccion" id="direccion" placeholder="Direccion">
+            <input class="control" type="text" name="periodo " id="periodo" placeholder="Periodo en el que Ingreso">
+            <input class="control" type="text" name="carrera" id="carrera" placeholder="Carrera">
+    
+            <input type="submit" value="Registrar">
+            <p><a href="#">¿Ya tengo cuenta?</a></p>
+        </form>
+    </div>
+
+    <script>
+        // Función para validar el login y mostrar el segundo formulario
+        function login() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            // Validar credenciales (en este ejemplo están en duro, pero se podría hacer con un servidor)
+            if (username === "admin" && password === "1234") {
+                // Ocultar el formulario de login
+                document.getElementById("loginForm").classList.add("hidden");
+                
+                // Mostrar el segundo formulario
+                document.getElementById("secondForm").classList.remove("hidden");
+                return false; // Evitar que el formulario de login se envíe
+            } else {
+                alert("Usuario o contraseña incorrectos.");
+                return false; // Evitar el envío del formulario si las credenciales son incorrectas
+            }
+        }
+    </script>
+
+</body>
+</html>
